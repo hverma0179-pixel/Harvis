@@ -1,1 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HARVIS is a simple Gemini-powered voice assistant with local JSON memory."
+    />
+    <title>HARVIS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="command-panel" aria-label="HARVIS command console">
+        <header class="topbar">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <div>
+              <h1>HARVIS</h1>
+              <p>Gemini command console</p>
+            </div>
+          </div>
 
+          <div class="status-badge" id="networkStatus">
+            <span aria-hidden="true"></span>
+            Starting
+          </div>
+        </header>
+
+        <div class="orb-stage" aria-live="polite">
+          <div class="orb idle" id="aiOrb" aria-hidden="true">
+            <div class="orb-core"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-wave"></div>
+          </div>
+          <p id="stateText">Ready for your command.</p>
+        </div>
+
+        <div class="system-strip" aria-label="System status">
+          <div>
+            <span>Model</span>
+            <strong id="modelName">Gemini</strong>
+          </div>
+          <div>
+            <span>Memory</span>
+            <strong id="memoryLabel">JSON</strong>
+          </div>
+          <div>
+            <span>Search</span>
+            <strong id="searchLabel">Auto</strong>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button class="control-button primary" id="micButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Z"></path>
+              <path d="M19 11a7 7 0 0 1-14 0"></path>
+              <path d="M12 18v3"></path>
+              <path d="M8 21h8"></path>
+            </svg>
+            Speak
+          </button>
+
+          <button class="control-button" id="stopButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 8h8v8H8z"></path>
+            </svg>
+            Stop
+          </button>
+
+          <button class="control-button" id="clearButton" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h18"></path>
+              <path d="M8 6V4h8v2"></path>
+              <path d="M19 6l-1 14H6L5 6"></path>
+              <path d="M10 11v5"></path>
+              <path d="M14 11v5"></path>
+            </svg>
+            Clear
+          </button>
+        </div>
+
+        <label class="voice-picker" for="voiceSelect">
+          <span>Voice</span>
+          <select id="voiceSelect" aria-label="Select assistant voice">
+            <option value="">Loading voices...</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="chat-panel" aria-label="Chat with HARVIS">
+        <div class="chat-header">
+          <div>
+            <h2>Command Log</h2>
+            <p id="healthLine">Local console warming up.</p>
+          </div>
+        </div>
+
+        <div class="quick-prompts" aria-label="Quick prompts">
+          <button type="button">Latest AI news today</button>
+          <button type="button">Explain agents simply</button>
+          <button type="button">Current Gemini model news</button>
+          <button type="button">Remember that I like concise answers</button>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite">
+          <article class="message ai">
+            <p>Systems online. What shall I handle?</p>
+          </article>
+        </div>
+
+        <form class="composer" id="chatForm">
+          <input
+            id="messageInput"
+            name="message"
+            type="text"
+            autocomplete="off"
+            placeholder="Ask HARVIS anything..."
+            aria-label="Ask HARVIS anything"
+          />
+          <button class="send-button" type="submit" aria-label="Send message">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 2 11 13"></path>
+              <path d="m22 2-7 20-4-9-9-4 20-7Z"></path>
+            </svg>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
