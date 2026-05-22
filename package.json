@@ -1,0 +1,21 @@
+{
+  "name": "harvis-ai",
+  "version": "1.0.0",
+  "description": "Simple Gemini-only Jarvis-style assistant with voice, web grounding, and local JSON memory.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "harvis",
+    "gemini",
+    "voice-assistant",
+    "jarvis"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
